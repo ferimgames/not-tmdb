@@ -1,22 +1,21 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Link from "next/link";
-import Button from "@mui/material/Button";
+import { MediaElement } from "@/types/MediaElement";
+import { fetchMediaList } from "pages/api/media/[slug]";
+import HomePage from "pages/Home";
 
 export const metadata = {
   title: "Movies for me",
   description: "Super description",
 };
 
-export default function HomePage() {
-  return (
-    <Box sx={{ display: "flex" }}>
-      <Typography> Home</Typography>
+export default async function Page() {
+  const mediaList = (await fetchMediaList(
+    "en-US",
+    "1",
+    "movies"
+  )) as MediaElement[];
 
-      <Button variant="contained" LinkComponent={Link} href="/movie/asfd">
-        Go to movie
-      </Button>
-    </Box>
+  return (
+    <HomePage list={mediaList}/>
   );
 }
