@@ -1,29 +1,14 @@
-import * as React from 'react';
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import DescriptionPage from "pages/Description";
 
 export const metadata = {
-    title: "Description page",
-    description: "Amazing description",
-  };
-  
+  title: "Description page",
+  description: "Amazing description",
+};
 
-export default function DetailsPage() {
-  return (
-    <Container>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Typography variant="body1" gutterBottom>
-          Details Page
-        </Typography>
-      </Box>
-    </Container>
-  );
+export default function Page() {
+  return <DescriptionPage title="Test" />;
 }
