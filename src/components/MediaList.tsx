@@ -10,9 +10,9 @@ interface Props {
 
 const MediaList: React.FC<Props> = ({ list }) => {
   return (
-    <Grid spacing={2} container >
+    <Grid spacing={1} container sx={{alignContent:"center"}} >
       {list.map((element) => (
-        <Grid xs={3} item key={element.id}>
+        <Grid xs={2} item key={element.id}>
           <MediaCard
             img={element.img}
             title={element.title}

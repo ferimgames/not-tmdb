@@ -4,10 +4,10 @@ import CircularProgress, {
 } from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { blue, grey } from "@mui/material/colors";
+import { SxProps } from "@mui/material";
 
-export default function CircularProgressWithLabel(
-  props: CircularProgressProps & { value: number }
+export default function CircularRating(
+  props: CircularProgressProps & { value: number, containerprops?:SxProps  }
 ) {
   return (
     <Box
@@ -15,6 +15,8 @@ export default function CircularProgressWithLabel(
         position: "relative",
         display: "inline-flex",
         borderRadius: 200,
+        backgroundColor:"black",
+        ...props.containerprops
       }}
     >
       <CircularProgress variant="determinate" {...props} />
