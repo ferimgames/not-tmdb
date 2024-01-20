@@ -1,10 +1,9 @@
-"use client"
-import "@/app/ui/global.css";
 import * as React from "react";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme/theme";
-import { Box } from "@mui/system";
 import NavigationBar from "@/components/Nav/NavigationBar";
 
 export default function RootLayout({
@@ -17,7 +16,8 @@ export default function RootLayout({
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
-            <NavigationBar />
+            <CssBaseline />
+            <NavigationBar/>
             <Box
               component="main"
               sx={{
@@ -25,6 +25,7 @@ export default function RootLayout({
                 display: "flex",
                 justifyContent: "center",
                 maxWidth: 1600,
+                mt: 10,
                 mx: "auto",
               }}
             >

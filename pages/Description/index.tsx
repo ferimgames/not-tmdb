@@ -5,6 +5,7 @@ import { MediaSources } from "@/types/MediaSource";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import MediaList from "@/components/MediaList";
+import CastList from "./components/CastList";
 
 interface Props {
   media: MediaSources;
@@ -18,9 +19,14 @@ interface Props {
     rating: number;
     number_votes: number;
     release_date: string;
-    genres: {}[];
-    credits: {}[];
-    highlightCrew: { name: string; job?: string }[];
+    highlightCrew: { id: number; name: string; job?: string }[];
+    genres: { id: number; name: string }[];
+    cast: {
+      id: number;
+      name: string;
+      character: string;
+      profile_path: string;
+    }[];
   };
 }
 const DescriptionPage: React.FC<Props> = ({ mediaInfo, media }) => {
@@ -42,7 +48,7 @@ const DescriptionPage: React.FC<Props> = ({ mediaInfo, media }) => {
 
   return (
     <Box width={"100%"}>
-      <Box sx={{ mb: 10 }}>
+      <Box sx={{ mb: 5 }}>
         <Hero
           title={mediaInfo.title}
           tagline={mediaInfo.tagline}
@@ -55,10 +61,20 @@ const DescriptionPage: React.FC<Props> = ({ mediaInfo, media }) => {
           genres={mediaInfo.genres}
         />
       </Box>
-
-      <Box>
-        <MediaList list={itemsList} />
+      <Box sx={{ mb: 5 }}>
+        <Typography variant="h3" sx={{ ml: 1, mb: 1 }}>
+          Cast
+        </Typography>
+        <CastList cast={mediaInfo.cast} />
       </Box>
+      {itemsList.length > 0 && (
+        <Box sx={{ mb: 5 }}>
+          <Typography variant="h3" sx={{ ml: 1, mb: 1 }}>
+            Similar {media === "tv" ? "Series" : "Movies"}
+          </Typography>
+          <MediaList list={itemsList} />
+        </Box>
+      )}
     </Box>
   );
 };
