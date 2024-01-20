@@ -5,7 +5,7 @@ import HomePage from "pages/Home";
 
 export const metadata = {
   title: "Movies for me",
-  description: "Super description",
+  description: "What do you want to see?",
 };
 
 export default async function Page() {
@@ -15,7 +15,5 @@ export default async function Page() {
     "movies"
   )) as MediaElement[];
 
-  return (
-    <HomePage list={mediaList}/>
-  );
+  return <HomePage list={mediaList} />;
 }

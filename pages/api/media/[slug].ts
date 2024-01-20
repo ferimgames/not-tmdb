@@ -127,14 +127,14 @@ export async function getMedaInfo(
       : res.data.release_date,
     highlightCrew,
     created_by: res.data.created_by,
-    credits: res.data.credits,
+    cast: res.data.credits.cast,
   };
 }
 
 const parseMediaListData = (
   data: {
     id: number;
-    original_name: string;
+    name: string;
     title?: string;
     poster_path: string;
     vote_average: number;
@@ -147,7 +147,7 @@ const parseMediaListData = (
 
   const parseData = cleanData.map((media) => ({
     id: media.id,
-    title: media.title ? media.title : media.original_name,
+    title: media.title ? media.title : media.name,
     img: `https://image.tmdb.org/t/p/original/${media.poster_path}`,
     rating: media.vote_average,
     url: `/${source}/${media.id}`,

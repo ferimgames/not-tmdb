@@ -16,16 +16,21 @@ const HomePage: React.FC<Props> = ({ list }) => {
   const [source, setSource] = useState<MediaSources>("movies");
   const [itemsList, setItemsList] = useState(list);
   const [firstTime, setFirstTime] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchList = async () => {
       if (firstTime) return;
-
-      const newList = await axios.post("/api/media/fetchMediaList", {
-        language: "en-US",
-        page: "1",
-        source,
-      });
+      setIsLoading(true);
+      const newList = await axios
+        .post("/api/media/fetchMediaList", {
+          language: "en-US",
+          page: "1",
+          source,
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
       setItemsList(newList.data.result);
     };
 
@@ -34,13 +39,20 @@ const HomePage: React.FC<Props> = ({ list }) => {
 
   const onClickSourceHanlder = () => {
     setFirstTime(false);
-    setSource("tv");
+    if (source === "movies") {
+      setSource("tv");
+    } else {
+      setSource("movies");
+    }
   };
   return (
     <Box maxWidth={1600}>
-      <Hero />
+      <Hero
+        onClickSourceHanlder={onClickSourceHanlder}
+        source={source}
+        isLoading={isLoading}
+      />
       <Box>
-        <Button onClick={onClickSourceHanlder}>TV</Button>
         <MediaList list={itemsList} />
       </Box>
     </Box>
