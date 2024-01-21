@@ -4,7 +4,6 @@ import axios from "axios";
 import { MediaSources } from "@/types/MediaSource";
 import { MediaElement } from "@/types/MediaElement";
 import Box from "@mui/material/Box";
-import { Button } from "@mui/material";
 import MediaList from "@/components/MediaList";
 import Hero from "./components/Hero";
 
