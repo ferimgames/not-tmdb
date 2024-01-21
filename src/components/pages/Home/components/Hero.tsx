@@ -1,5 +1,5 @@
 import { MediaSources } from "@/types/MediaSource";
-import movieImage from "../../../public/imgs/assortment-cinema-elements-red-background-with-copy-space.jpg";
+import movieImage from "../../../../../public/imgs/assortment-cinema-elements-red-background-with-copy-space.jpg"
 import { Box, Button, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import { motion } from "framer-motion";

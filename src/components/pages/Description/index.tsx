@@ -44,7 +44,7 @@ const DescriptionPage: React.FC<Props> = ({ mediaInfo, media }) => {
     };
 
     fetchRelatedMedia();
-  }, []);
+  }, [media, mediaInfo.id]);
 
   return (
     <Box width={"100%"}>
