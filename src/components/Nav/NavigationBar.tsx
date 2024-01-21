@@ -1,6 +1,5 @@
 import * as React from "react";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import MovieIcon from "@mui/icons-material/Movie";
 import Link from "next/link";
 import AppBar from "@mui/material/AppBar";

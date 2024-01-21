@@ -1,7 +1,7 @@
 import * as React from "react";
 import { MediaElement } from "@/types/MediaElement";
-import { fetchMediaList } from "pages/api/media/[slug]";
-import HomePage from "pages/Home";
+import { fetchMediaList } from "../../pages/api/media/[slug]";
+import HomePage from "../../pages/Home";
 
 export const metadata = {
   title: "Movies for me",

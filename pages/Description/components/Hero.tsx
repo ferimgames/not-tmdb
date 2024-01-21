@@ -1,7 +1,6 @@
 "use client";
 import CircularRating from "@/components/UI/CircularRating";
 import { Box, Card, Grid, Typography } from "@mui/material";
-import shadows from "@mui/material/styles/shadows";
 import Image from "next/image";
 
 interface Props {
@@ -63,7 +62,7 @@ const Hero: React.FC<Props> = ({
         pt: { md: 2, xs: 0 },
         mt: { md: 2, xs: 0 },
         borderRadius: 2,
-        boxShadow: shadows[10],
+        boxShadow: 10,
       }}
     >
       <Grid
@@ -75,7 +74,7 @@ const Hero: React.FC<Props> = ({
           backgroundColor: "#0000006c",
           borderRadius: 2,
           p: { md: 0, xs: 2 },
-          boxShadow: shadows[10],
+          boxShadow: 10,
         }}
       >
         <Grid item xs={12} md={3}>

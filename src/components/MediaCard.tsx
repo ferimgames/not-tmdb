@@ -14,7 +14,12 @@ interface Props {
 const MediaCard: React.FC<Props> = ({ img, title, rating, url }) => {
   const [imgIsLoading, setImageIsLoading] = useState(true);
   return (
-    <Link component={NextLink} href={url} sx={{ textDecoration: "none" }}>
+    <Link
+      component={NextLink}
+      href={url}
+      sx={{ textDecoration: "none" }}
+      data-testid={`test_${title}`}
+    >
       <Box
         sx={{
           width: "100%",
@@ -33,7 +38,6 @@ const MediaCard: React.FC<Props> = ({ img, title, rating, url }) => {
             sx={{
               width: "100%",
               height: "100%",
-              position: "relative",
               overflow: "hidden",
             }}
           >

@@ -1,7 +1,6 @@
 import { MediaSources } from "@/types/MediaSource";
 import movieImage from "../../../public/imgs/assortment-cinema-elements-red-background-with-copy-space.jpg";
-import { Box, Button, Card, Grid, Typography } from "@mui/material";
-import shadows from "@mui/material/styles/shadows";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import { motion } from "framer-motion";
 interface Props {
@@ -18,7 +17,7 @@ const Hero: React.FC<Props> = ({ onClickSourceHanlder, source, isLoading }) => {
         mt: 2,
         mb: 2,
         borderRadius: 2,
-        boxShadow: shadows[10],
+        boxShadow: 10,
         position: "relative",
         overflow: "hidden",
       }}
