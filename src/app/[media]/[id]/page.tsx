@@ -1,29 +1,32 @@
-import * as React from 'react';
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import DescriptionPage from "pages/Description";
+import { getMedaInfo } from "pages/api/media/[slug]";
+import { MediaSources } from "@/types/MediaSource";
+import type { Metadata, ResolvingMetadata } from "next";
 
-export const metadata = {
-    title: "Description page",
-    description: "Amazing description",
+type Props = {
+  params: { media: MediaSources; id: number };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+): Promise<Metadata> {
+  const { id, media } = params;
+  const mediaInfo = await getMedaInfo(id, "en-US", media);
+  return {
+    title: mediaInfo.title,
+    description: mediaInfo.overview,
   };
-  
+}
 
-export default function DetailsPage() {
-  return (
-    <Container>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Typography variant="body1" gutterBottom>
-          Details Page
-        </Typography>
-      </Box>
-    </Container>
-  );
+export default async function Page({
+  params,
+}: {
+  params: { media: MediaSources; id: number };
+}) {
+  const { id, media } = params;
+  const mediaInfo = await getMedaInfo(id, "en-US", media);
+
+  return <DescriptionPage mediaInfo={mediaInfo} media={media} />;
 }

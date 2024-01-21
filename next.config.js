@@ -3,13 +3,14 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'source.unsplash.com',
-        port: '',
-        pathname: '/random',
+        protocol: "https",
+        hostname: "image.tmdb.org",
+        port: "",
+        pathname: "/t/p/**",
       },
     ],
   },
+  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
 };
 
 module.exports = nextConfig;
