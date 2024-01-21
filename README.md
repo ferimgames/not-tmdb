@@ -1,10 +1,9 @@
 # Not TMDB
+Importat in normal applications the .env file would not be included in the git, and I'll would have use an CDN with AWS to have the local images run quicker
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped using [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with Material UI installed.
 
 ## How to use
-
-Download the example [or clone the repo](https://github.com/mui/material-ui):
 
 Install it and run:
 
