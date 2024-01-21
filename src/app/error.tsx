@@ -1,5 +1,5 @@
 "use client"
-import ErrorPage from "pages/Error";
+import ErrorPage from "@/components/pages/Error";
 
 export const metadata = {
   title: "Something happen please try again later"

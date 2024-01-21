@@ -34,6 +34,7 @@ const HomePage: React.FC<Props> = ({ list }) => {
     };
 
     fetchList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [source]);
 
   const onClickSourceHanlder = () => {
